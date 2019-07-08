@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+Thymeleaf模板引擎
+<h1 th:text="${resource.name}">Hello world!</h1>
+<h1 th:text="${resource.website}">Hello world!</h1>
+<h1 th:text="${resource.language}">Hello world!</h1>
+<h1 th:text="${user.username}">Hello world!</h1>
+<h1 th:text="${#dates.format(user.birthday,'yyyy-MM-dd hh:mm:ss a')}">Hello world!</h1>
+<h1 th:text="${user.password}">Hello world!</h1>
+
+<div>
+    用户姓名：<input type="text" th:name="${user.username}" th:value="${user.username}" th:id="${user.username}"/><br>
+    用户密码：<input type="text" th:name="${user.password}" th:value="${user.password}" th:id="${user.password}"/><br>
+    用户生日：<input type="text" th:value="${#dates.format(user.birthday,'yyyy-MM-dd hh:mm:ss a')}"/><br>
+</div>
+<br><br>
+<div th:object="${user}">
+    用户姓名：<input type="text" th:name="*{username}" th:value="*{username}" th:id="*{username}"/><br>
+    用户密码：<input type="text" th:name="*{password}" th:value="*{password}" th:id="*{password}"/><br>
+    用户生日：<input type="text" th:value="*{#dates.format(birthday,'yyyy-MM-dd hh:mm:ss a')}"/><br>
+</div>
+
+<!--form表单提交-->
+<h2>form表单提交</h2>
+<form th:action="">
+
+</form>
+
+
+<!--加载js-->
+<script th:src="@{/static/js/index.js}"></script>
+</body>
+</html>
