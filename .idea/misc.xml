@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/spring_boot_mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/spring_boot_dubbo_interface/pom.xml" />
         <option value="$PROJECT_DIR$/spring_boot_dubbo_provider/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_boot_dubbo_consumer/pom.xml" />
       </list>
     </option>
   </component>
