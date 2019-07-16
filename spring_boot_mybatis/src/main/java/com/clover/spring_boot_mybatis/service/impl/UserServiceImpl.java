@@ -44,7 +44,6 @@ public class UserServiceImpl implements UserService {
             System.out.println("查询缓存");
 
         }
-
         return users;
     }
 

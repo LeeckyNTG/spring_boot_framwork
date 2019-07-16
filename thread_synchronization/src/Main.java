@@ -9,7 +9,6 @@ public class Main {
         threadFactory();
         executor();
         callable();
-
     }
 
     /**
@@ -46,7 +45,6 @@ public class Main {
 
         ThreadFactory factory = new ThreadFactory() {
             int count = 0;
-
             @Override
             public Thread newThread(Runnable runnable) {
                 count++;
@@ -88,12 +86,10 @@ public class Main {
         executor.execute(runnable);
         executor.execute(runnable);
 
-
         /**保守型的关闭线程池,会等加入线程池中的线程全部执行结束后才会销毁*/
         executor.shutdown();
         /**强制型的关闭线程池,会立刻销毁所有线程*/
         executor.shutdownNow();
-
 
         /**自定义线程池*/
         BlockingDeque<Runnable> queue = new LinkedBlockingDeque<>(10000);//线程存储队列
@@ -103,7 +99,7 @@ public class Main {
 
 
     /**
-     *
+     *带返回值的线程
      */
     private static void callable() {
         Callable<String> callable= new Callable<String>() {
@@ -113,13 +109,10 @@ public class Main {
                 return "完成";
             }
         };
-
         ExecutorService executor = Executors.newCachedThreadPool();
         Future<String> future = executor.submit(callable);
-
         /**获取线程是否执行结束*/
         boolean bol = future.isDone();
-
         /**取出线程结束的返回值,get()方法会堵塞主线程*/
         try {
             String result = future.get();
@@ -127,9 +120,5 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
-
 }
